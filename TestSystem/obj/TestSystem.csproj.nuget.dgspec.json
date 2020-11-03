@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\labs\\SP\\TestSystem\\TestSystem\\TestSystem.csproj": {}
+    "D:\\labs\\ASP\\TestSystem\\TestSystem.csproj": {}
   },
   "projects": {
-    "D:\\labs\\SP\\TestSystem\\TestSystem\\TestSystem.csproj": {
+    "D:\\labs\\ASP\\TestSystem\\TestSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\labs\\SP\\TestSystem\\TestSystem\\TestSystem.csproj",
+        "projectUniqueName": "D:\\labs\\ASP\\TestSystem\\TestSystem.csproj",
         "projectName": "TestSystem",
-        "projectPath": "D:\\labs\\SP\\TestSystem\\TestSystem\\TestSystem.csproj",
+        "projectPath": "D:\\labs\\ASP\\TestSystem\\TestSystem.csproj",
         "packagesPath": "C:\\Users\\olgag\\.nuget\\packages\\",
-        "outputPath": "D:\\labs\\SP\\TestSystem\\TestSystem\\obj\\",
+        "outputPath": "D:\\labs\\ASP\\TestSystem\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -41,6 +41,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.StaticFiles": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
