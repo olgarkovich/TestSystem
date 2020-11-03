@@ -70,3 +70,5 @@ D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\TestSystem.dll
 D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\TestSystem.pdb
 D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\TestSystem.genruntimeconfig.cache
 D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\TestSystem.csproj.CopyComplete
+D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\TestSystem.csproj.CoreCompileInputs.cache
+D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\TestSystem.MvcApplicationPartsAssemblyInfo.cache
