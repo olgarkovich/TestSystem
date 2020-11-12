@@ -9,6 +9,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
+using TestSystem.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace TestSystem
 {
     public class Startup
@@ -24,6 +27,14 @@ namespace TestSystem
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<DbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("AppDbContext")));
+
+            services.AddDbContext<AppIdentityDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("AppIdentityDbContext")));
+
+            //////
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

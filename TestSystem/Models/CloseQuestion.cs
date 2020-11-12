@@ -9,7 +9,7 @@ namespace TestSystem.Models
     {
         public List<string> WrongAnswer { get; set; }
         public List<string> RightAnswer { get; set; }
-        public int Points { get; set; }
-        public List<string> Choice { get; set; }
+        public int Points { get; set; } //number of options
+        public List<string> Choice { get; set; } //user input
     }
 }

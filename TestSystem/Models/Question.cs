@@ -7,10 +7,10 @@ namespace TestSystem.Models
 {
     public abstract class Question
     {
-        public int Id { get; set; }
+        public uint Id { get; set; }
         public string Name { get; set; }
         public string Task{ get; set; } 
         public int Weight { get; set; }
-        public string Theme { get; set; }
+        public string Category { get; set; }
     }
 }
