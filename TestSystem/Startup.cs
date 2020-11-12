@@ -28,11 +28,11 @@ namespace TestSystem
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<DbContext>(options =>
+            services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("AppDbContext")));
 
-            services.AddDbContext<AppIdentityDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("AppIdentityDbContext")));
+            //services.AddDbContext<AppIdentityDbContext>(options =>
+            //options.UseSqlServer(Configuration.GetConnectionString("AppIdentityDbContext")));
 
             //////
         }
