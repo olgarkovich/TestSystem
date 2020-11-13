@@ -1,0 +1,33 @@
+﻿@model IEnumerable<TestSystem.Models.Test>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Список тестов</h2>
+<h3>Общие тесты (тест содержит вопросы из разных разделов)</h3>
+
+@foreach (var item in Model)
+{
+    <p>
+        @Html.ActionLink(item.Name, "GeneralTest", new { index = item.Id })
+    </p>
+}
+
+<h3>Тесты по разделам</h3>
+<p>
+    @Html.ActionLink("Орфография", "Category", new { category = "Орфография" })
+</p>
+<p>
+    @Html.ActionLink("Пунктуация", "Category", new { category = "Пунктуация" })
+</p>
+<p>
+    @Html.ActionLink("Синтаксис", "Category", new { category = "Синтаксис" })
+</p>
+<p>
+    @Html.ActionLink("Морфология", "Category", new { category = "Морфология" })
+</p>
+<p>
+    @Html.ActionLink("Лексика", "Category", new { category = "Лексика" })
+</p>
+

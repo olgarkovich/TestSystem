@@ -10,8 +10,8 @@ using TestSystem.Data;
 namespace TestSystem.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20201112172308_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20201113202849_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -129,6 +129,9 @@ namespace TestSystem.Migrations
 
                     b.Property<string>("Category")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsOpen")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Task")
                         .HasColumnType("nvarchar(max)");

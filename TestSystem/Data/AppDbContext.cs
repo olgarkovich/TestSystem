@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using TestSystem.Data;
 using TestSystem.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using System.Configuration;
 
 namespace TestSystem.Data
 {

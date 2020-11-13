@@ -1,0 +1,22 @@
+﻿@model IEnumerable<TestSystem.Models.Test>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Список тестов</h2>
+@try
+{
+<h3>Раздел "@Model.ElementAt(0).Category"</h3>
+}
+catch(Exception ex)
+{
+    <h3>Тесты не найдены.</h3>
+}
+
+@foreach (var item in Model)
+{
+    <p>
+        @Html.ActionLink(item.Name, "CategoryTest", new { index = item.Id, category = item.Category }, null)
+    </p>
+}

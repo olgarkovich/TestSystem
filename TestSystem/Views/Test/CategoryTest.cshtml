@@ -1,0 +1,34 @@
+﻿@model TestSystem.Models.Test
+
+@{
+    ViewData["Title"] = "Тест по разделу";
+}
+
+<h2>@Model.Name</h2>
+
+@foreach (var item in Model.CloseQuestions)
+{
+    <br />
+    <p>
+        <b>
+            @(Model.CloseQuestions.IndexOf(item) + 1). @Html.DisplayFor(modelItem => item.Task)
+        </b>
+
+    </p>
+    foreach (var a in item.Answers)
+    {
+        <p><pre>    @Html.CheckBox($"option{a.Id}", false)  @a.TextAnswer" </pre></p>
+    }
+
+}
+
+<html>
+<head>
+    <title>Кнопка</title>
+</head>
+<body>
+    <form>
+        <p><input type="submit"></p>
+    </form>
+</body>
+</html>

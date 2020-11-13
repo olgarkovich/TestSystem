@@ -1,0 +1,24 @@
+﻿@model IEnumerable<TestSystem.Models.Question>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach (var item in Model)
+{
+    <p>
+
+
+        @Html.DisplayFor(modelItem => item.Task)
+
+    </p>
+    <p>
+    @Html.DisplayFor(modelItem => item.Category)
+
+
+
+    </p>
+}
+

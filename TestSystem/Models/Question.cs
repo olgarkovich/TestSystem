@@ -8,6 +8,7 @@ namespace TestSystem.Models
 {
     public class Question
     {
+        [Key]
         public uint Id { get; set; }
         public string Task{ get; set; } 
         public int Weight { get; set; }

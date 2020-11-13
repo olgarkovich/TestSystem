@@ -7,9 +7,37 @@ namespace TestSystem.Models
 {
     public class CloseQuestion : Question
     {
-        public List<string> WrongAnswer { get; set; }
-        public List<string> RightAnswer { get; set; }
-        public int Points { get; set; } //number of options
-        public List<string> Choice { get; set; } //user input
+        public List<Answer> WrongAnswer { get; set; }
+        public List<Answer> RightAnswer { get; set; }
+        public List<Answer> Answers { get; set; }
+        public int points = 5;//number of options
+        public List<UserAnswer> Choice { get; set; } //user input
+
+        public CloseQuestion() { }
+
+        public CloseQuestion(string task, string category, int weight)
+        {
+            Task = task;
+            Category = category;
+            Weight = weight;
+        }
+
+        public CloseQuestion(Question question, List<Answer> right, List<Answer> wrong)
+        {
+            Task = question.Task;
+            Category = question.Category;
+            Weight = question.Weight;
+            IsOpen = question.IsOpen;
+            RightAnswer = right;
+            WrongAnswer = wrong;
+        }
+
+        public CloseQuestion(Question question)
+        {
+            Task = question.Task;
+            Category = question.Category;
+            Weight = question.Weight;
+            IsOpen = question.IsOpen;
+        }
     }
 }

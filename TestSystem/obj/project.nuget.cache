@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "HLac9806Aqhfh+olzkW6QIYv5UItwWXD7aC+ZuC4VzzU3ogQxZvNy2QxpiD7lzUojoKfPMijQ1A3c4BsdTxjqw==",
+  "dgSpecHash": "YMVDN8VFh0LvzcMDSEYhHmz9qnMI0COXKW/RTdDbqgTiOR/5jBmDXe4RmdlsLm3CJS0w1P8TiZcM5jjjKH/ddw==",
   "success": true,
   "projectFilePath": "D:\\labs\\ASP\\TestSystem\\TestSystem.csproj",
   "expectedPackageFiles": [
@@ -44,6 +44,7 @@
     "C:\\Users\\olgag\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.0\\microsoft.entityframeworkcore.tools.5.0.0.nupkg.sha512",
     "C:\\Users\\olgag\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\olgag\\.nuget\\packages\\microsoft.extensions.caching.memory\\5.0.0\\microsoft.extensions.caching.memory.5.0.0.nupkg.sha512",
+    "C:\\Users\\olgag\\.nuget\\packages\\microsoft.extensions.configuration\\5.0.0\\microsoft.extensions.configuration.5.0.0.nupkg.sha512",
     "C:\\Users\\olgag\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\olgag\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\5.0.0\\microsoft.extensions.dependencyinjection.5.0.0.nupkg.sha512",
     "C:\\Users\\olgag\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",

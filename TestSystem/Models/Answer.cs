@@ -8,6 +8,7 @@ namespace TestSystem.Models
 {
     public class Answer
     {
+        [Key]
         public uint Id { get; set; }
         public string TextAnswer { get; set; }
         public bool IsRight { get; set; }

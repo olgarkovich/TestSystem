@@ -7,7 +7,7 @@ namespace TestSystem.Models
 {
     public class OpenQuestion : Question
     {
-        public string RightAnswer { get; set; }
-        public string Choice { get; set; } //user input
+        public Answer RightAnswer { get; set; }
+        public Answer Choice { get; set; } //user input
     }
 }
