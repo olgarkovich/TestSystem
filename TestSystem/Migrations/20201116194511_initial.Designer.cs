@@ -10,8 +10,8 @@ using TestSystem.Data;
 namespace TestSystem.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20201113202849_Initial")]
-    partial class Initial
+    [Migration("20201116194511_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -79,6 +79,9 @@ namespace TestSystem.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.None);
+
+                    b.Property<bool>("IsChecked")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("IsRight")
                         .HasColumnType("bit");
@@ -149,13 +152,16 @@ namespace TestSystem.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.None);
+                        .UseIdentityColumn();
 
                     b.Property<string>("Answer")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<long>("QuestionId")
                         .HasColumnType("bigint");
+
+                    b.Property<int>("TestTry")
+                        .HasColumnType("int");
 
                     b.Property<long>("UserId")
                         .HasColumnType("bigint");

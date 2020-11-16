@@ -1,0 +1,45 @@
+﻿@model TestSystem.Models.Test
+
+@{
+    ViewData["Title"] = "Общий тест";
+}
+
+
+@foreach (var question in Model.CloseQuestions)
+{
+    <br />
+    <p>
+        <b>
+            @(question.Id). @Html.DisplayFor(item => question.Task)
+        </b>
+
+    </p>
+
+    foreach (var answer in question.Answers)
+    {
+        if (answer.IsChecked == true && answer.IsRight == true)
+        {
+            <p>
+                <h5 style="background:rgba(84, 255, 98, 0.87)">
+                    <pre>@Html.CheckBoxFor(a => answer.IsChecked)<label>  @answer.TextAnswer</label></pre>
+                </h5>
+            </p>
+        }
+        else if (answer.IsChecked != answer.IsRight)
+        {
+            <p>
+                <h5 style="background:rgb(255, 62, 62)">
+                    <pre>@Html.CheckBoxFor(a => answer.IsChecked)<label>  @answer.TextAnswer</label></pre>
+                </h5>
+            </p>
+        }
+        else
+        {
+            <p>
+                <pre>@Html.CheckBoxFor(a => answer.IsChecked)<label>  @answer.TextAnswer</label></pre>
+            </p>
+        }
+    }
+}
+
+

@@ -217,3 +217,4 @@ D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\Razor\Views\Test\Index.cshtml.g.c
 D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\Razor\Views\Test\GeneralTest.cshtml.g.cs
 D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\Razor\Views\Test\CategoryTest.cshtml.g.cs
 D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\Razor\Views\Test\Category.cshtml.g.cs
+D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\Razor\Views\Test\TestResult.cshtml.g.cs

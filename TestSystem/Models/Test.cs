@@ -12,6 +12,7 @@ namespace TestSystem.Models
         public List<CloseQuestion> CloseQuestions { get; set; }
         public List<OpenQuestion> OpenQuestions { get; set; }
         public string Category { get; set; }
+        public List<uint> UserChoices { get; set; }
 
         public Test() { }
 
@@ -21,6 +22,30 @@ namespace TestSystem.Models
             Name = name;
             Category = category;
         }
+
+        //public Test(Test test)
+        //{
+        //    Id = test.Id;
+        //    Name = test.Name;
+        //    CloseQuestions = test.CloseQuestions;
+        //    OpenQuestions = test.OpenQuestions;
+        //    Category = test.Category;
+        //}
+
+        //public List<uint> createAnswers(Test test)
+        //{
+        //    foreach (CloseQuestion cl in test.CloseQuestions)
+        //    {
+        //        foreach(Answer a in cl.Answers)
+        //        {
+        //            if (a.IsChecked)
+        //            {
+        //                UserChoices.Add(a.Id);
+        //            }
+        //        }
+        //    }
+        //    return UserChoices;
+        //}
 
     }
 

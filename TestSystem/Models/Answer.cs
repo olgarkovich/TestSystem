@@ -13,5 +13,6 @@ namespace TestSystem.Models
         public string TextAnswer { get; set; }
         public bool IsRight { get; set; }
         public uint QuestionId { get; set; } 
+        public bool IsChecked { get; set; }
     }
 }

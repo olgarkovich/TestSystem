@@ -6,30 +6,82 @@
 
 <h2>@Model.Name</h2>
 
-@foreach (var item in Model.CloseQuestions)
-{
-    <br />
-    <p>
-        <b>
-            @(Model.CloseQuestions.IndexOf(item) + 1). @Html.DisplayFor(modelItem => item.Task)
-        </b>
 
-    </p>
-    foreach (var a in item.Answers)
+@*@using (Html.BeginForm())
+    {*@
+<form method="post">
+    @Html.HiddenFor(name => Model.Name)
+    @Html.HiddenFor(category => Model.Category)
+
+    @for (int n = 0; n < Model.CloseQuestions.Count(); n++)
     {
-        <p><pre>    @Html.CheckBox($"option{a.Id}", false)  @a.TextAnswer</pre></p>
-        @*<p><pre>    <input type="checkbox" name="option" value="a" />  @a.TextAnswer" </pre></p>*@
+        <br />
+        <p>
+            <b>
+                @(n + 1). @Html.DisplayFor(item => Model.CloseQuestions[n].Task)
+            </b>
+
+        </p>
+
+        for (int i = 0; i < Model.CloseQuestions[n].Answers.Count; i++)
+        {
+            @Html.HiddenFor(q => Model.CloseQuestions[i].Id)
+            @Html.HiddenFor(q => Model.CloseQuestions[i].Category)
+            @Html.HiddenFor(q => Model.CloseQuestions[i].IsOpen)
+            <p>
+                <pre>  @Html.CheckBoxFor(a => Model.CloseQuestions[n].Answers[i].IsChecked)<label>  @Model.CloseQuestions[n].Answers[i].TextAnswer</label></pre>
+                @Html.HiddenFor(a => Model.CloseQuestions[n].Answers[i].Id)
+                @Html.HiddenFor(a => Model.CloseQuestions[n].Answers[i].QuestionId)
+                @Html.HiddenFor(a => Model.CloseQuestions[n].Answers[i].TextAnswer)
+                @Html.HiddenFor(a => Model.CloseQuestions[n].Answers[i].IsRight)
+            </p>
+        }
     }
 
-}
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+</form>
 
-<html>
-<head>
-    <title>Кнопка</title>
-</head>
-<body>
-    <form>
-        <p><input type="submit"></p>
-    </form>
-</body>
-</html>
+@*<form method="get">
+
+    @foreach (var question in Model.CloseQuestions)
+    {
+        <br />
+        <p>
+            <b>
+                @(n + 1). @Html.DisplayFor(item => question.Task)
+            </b>
+
+        </p>
+
+        foreach (var answer in question.Answers)
+        {
+            if (answer.IsChecked == true && answer.IsRight == true)
+            {
+                <p>
+                    <h5 style="background:rgba(84, 255, 98, 0.87)">
+                        <pre>@Html.CheckBoxFor(a => answer.IsChecked)<label>  @answer.TextAnswer</label></pre>
+                    </h5>
+                </p>
+            }
+            else if (answer.IsChecked != answer.IsRight)
+            {
+                <p>
+                    <h5 style="background:rgb(255, 62, 62)">
+                        <pre>@Html.CheckBoxFor(a => answer.IsChecked)<label>  @answer.TextAnswer</label></pre>
+                    </h5>
+                </p>
+            }
+            else
+            {
+                <p>
+                    <pre>@Html.CheckBoxFor(a => answer.IsChecked)<label>  @answer.TextAnswer</label></pre>
+                </p>
+            }
+        }
+    }
+
+</form>*@
+
+

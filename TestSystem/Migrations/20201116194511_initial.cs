@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TestSystem.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,7 +14,8 @@ namespace TestSystem.Migrations
                     Id = table.Column<long>(type: "bigint", nullable: false),
                     TextAnswer = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsRight = table.Column<bool>(type: "bit", nullable: false),
-                    QuestionId = table.Column<long>(type: "bigint", nullable: false)
+                    QuestionId = table.Column<long>(type: "bigint", nullable: false),
+                    IsChecked = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -65,10 +66,12 @@ namespace TestSystem.Migrations
                 name: "UserAnswers",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "bigint", nullable: false),
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<long>(type: "bigint", nullable: false),
                     QuestionId = table.Column<long>(type: "bigint", nullable: false),
-                    Answer = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Answer = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TestTry = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

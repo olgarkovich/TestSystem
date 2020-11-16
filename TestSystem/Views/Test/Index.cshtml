@@ -9,25 +9,14 @@
 
 @foreach (var item in Model)
 {
-    <p>
-        @Html.ActionLink(item.Name, "GeneralTest", new { index = item.Id })
-    </p>
+    <p><pre>    @Html.ActionLink(item.Name, "GeneralTest", new { index = item.Id })</pre></p>
 }
 
+<br />
 <h3>Тесты по разделам</h3>
-<p>
-    @Html.ActionLink("Орфография", "Category", new { category = "Орфография" })
-</p>
-<p>
-    @Html.ActionLink("Пунктуация", "Category", new { category = "Пунктуация" })
-</p>
-<p>
-    @Html.ActionLink("Синтаксис", "Category", new { category = "Синтаксис" })
-</p>
-<p>
-    @Html.ActionLink("Морфология", "Category", new { category = "Морфология" })
-</p>
-<p>
-    @Html.ActionLink("Лексика", "Category", new { category = "Лексика" })
-</p>
+<p><pre>    @Html.ActionLink("Орфография", "Category", new { category = "Орфография" })</pre></p>
+<p><pre>    @Html.ActionLink("Пунктуация", "Category", new { category = "Пунктуация" })</pre></p>
+<p><pre>    @Html.ActionLink("Синтаксис", "Category", new { category = "Синтаксис" })</pre></p>
+<p><pre>    @Html.ActionLink("Морфология", "Category", new { category = "Морфология" })</pre></p>
+<p><pre>    @Html.ActionLink("Лексика", "Category", new { category = "Лексика" })</pre><p>
 
