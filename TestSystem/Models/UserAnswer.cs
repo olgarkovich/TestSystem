@@ -12,12 +12,12 @@ namespace TestSystem.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public long Id { get; set; }
-        public uint UserId { get; set; }
+        public string UserId { get; set; }
         public uint QuestionId { get; set; }
         public string Answer { get; set; }
         public int TestTry { get; set; }
 
-        public UserAnswer(uint userId, uint questionId, string answer, int testTry)
+        public UserAnswer(string userId, uint questionId, string answer, int testTry)
         {
             UserId = userId;
             QuestionId = questionId;

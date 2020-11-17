@@ -1,0 +1,34 @@
+﻿@model TestSystem.ViewModels.LoginViewModel
+
+@{
+    ViewBag.Title = "Войти";
+}
+<h1> Войти в аккаунт</h1>
+<div class="row" style="margin-top:30px;">
+    <div class="col-md-12">
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Email">Электронная почта</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password">Пароль</label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="custom-checkbox">
+                    <label asp-for="RememberMe">Запомнить меня</label>
+                    <input asp-for="RememberMe" />
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Войти</button>
+        </form>
+    </div>
+</div>
+<div style="margin-bottom: 60px; padding-top: 20px;">
+    <h4> Нет аккаунта? </h4>
+    @Html.ActionLink("Зарегистрироваться", "Register")
+</div>

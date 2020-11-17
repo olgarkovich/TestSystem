@@ -11,6 +11,8 @@ using Microsoft.Extensions.Hosting;
 
 using TestSystem.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using TestSystem.Models;
 
 namespace TestSystem
 {
@@ -31,8 +33,11 @@ namespace TestSystem
             services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("AppDbContext")));
 
-            //services.AddDbContext<AppIdentityDbContext>(options =>
-            //options.UseSqlServer(Configuration.GetConnectionString("AppIdentityDbContext")));
+            services.AddDbContext<AppIdentityDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("AppIdentityDbContext")));
+
+            services.AddIdentity<Profile, IdentityRole>()
+                .AddEntityFrameworkStores<AppIdentityDbContext>();
 
             //////
         }
@@ -55,6 +60,7 @@ namespace TestSystem
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

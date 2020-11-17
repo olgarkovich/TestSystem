@@ -218,3 +218,5 @@ D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\Razor\Views\Test\GeneralTest.csht
 D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\Razor\Views\Test\CategoryTest.cshtml.g.cs
 D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\Razor\Views\Test\Category.cshtml.g.cs
 D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\Razor\Views\Test\TestResult.cshtml.g.cs
+D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs

@@ -5,14 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using TestSystem.Models;
 
-//namespace TestSystem.Data
-//{
-//    public class AppIdentityDbContext : IdentityDbContext
-//    {
-//        public AppIdentityDbContext(DbContextOptions<AppIdentityDbContext> options) : base(options)
-//        {
-//            //Database.EnsureCreated();
-//        }
-//    }
-//}
+namespace TestSystem.Data
+{
+    public class AppIdentityDbContext : IdentityDbContext<Profile>
+    {
+        public AppIdentityDbContext(DbContextOptions<AppIdentityDbContext> options) : base(options)
+        {
+            Database.EnsureCreated();
+        }
+    }
+}

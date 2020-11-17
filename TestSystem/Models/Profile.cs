@@ -7,14 +7,9 @@ using System.Threading.Tasks;
 
 namespace TestSystem.Models
 {
-    public class Profile
+    public class Profile : IdentityUser
     {
-        public uint Id { get; set; }
-        public IdentityUser User { get; set; }
         public string Surname { get; set; }
         public string Name { get; set; }
-
-        [DataType(DataType.Date)]
-        public DateTime RegistrationTime { get; set; }
     }
 }

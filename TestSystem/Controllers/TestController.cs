@@ -21,19 +21,27 @@ namespace TestSystem.Controllers
 
         public async Task<IActionResult> IndexAsync()
         {
-            var listQuestions = await context.Questions.ToListAsync();
-            var countTest = listQuestions.Count / QUESTION_NUMBER;
-
-            List<Test> listGeneralTest = new List<Test>();
-
-            for (int i = 0; i < countTest; i++)
+            if (User.Identity.IsAuthenticated)
             {
-                listGeneralTest.Add(new Test());
-                listGeneralTest.ElementAt(i).Name = $"Общий тест {i + 1}";
-                listGeneralTest.ElementAt(i).Id = i;
+                var listQuestions = await context.Questions.ToListAsync();
+                var countTest = listQuestions.Count / QUESTION_NUMBER;
+
+                List<Test> listGeneralTest = new List<Test>();
+
+                for (int i = 0; i < countTest; i++)
+                {
+                    listGeneralTest.Add(new Test());
+                    listGeneralTest.ElementAt(i).Name = $"Общий тест {i + 1}";
+                    listGeneralTest.ElementAt(i).Id = i;
+                }
+
+                return View(listGeneralTest);
             }
 
-            return View(listGeneralTest);
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
         }
 
         public async Task<IActionResult> GeneralTestAsync(int index = 0)
@@ -117,7 +125,7 @@ namespace TestSystem.Controllers
                     }
                 }
 
-                var userAnswer = new UserAnswer(1000, question.Id, answerStr, currentTest);
+                var userAnswer = new UserAnswer(User.Identity.Name, question.Id, answerStr, currentTest);
                 context.UserAnswers.Add(userAnswer);
             }
 

@@ -22,39 +22,5 @@ namespace TestSystem.Models
             Name = name;
             Category = category;
         }
-
-        //public Test(Test test)
-        //{
-        //    Id = test.Id;
-        //    Name = test.Name;
-        //    CloseQuestions = test.CloseQuestions;
-        //    OpenQuestions = test.OpenQuestions;
-        //    Category = test.Category;
-        //}
-
-        //public List<uint> createAnswers(Test test)
-        //{
-        //    foreach (CloseQuestion cl in test.CloseQuestions)
-        //    {
-        //        foreach(Answer a in cl.Answers)
-        //        {
-        //            if (a.IsChecked)
-        //            {
-        //                UserChoices.Add(a.Id);
-        //            }
-        //        }
-        //    }
-        //    return UserChoices;
-        //}
-
     }
-
-    //public enum CategoryEnum
-    //{
-    //    Spelling = 1,
-    //    Punctuation,
-    //    Syntax,
-    //    Morphology,
-    //    Lexis
-    //}
 }
