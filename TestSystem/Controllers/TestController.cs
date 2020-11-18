@@ -95,6 +95,22 @@ namespace TestSystem.Controllers
                 test.CloseQuestions.Add(cq);
             }
 
+            double right = 0;
+            int wrong = 0;
+
+            foreach (var question in test.CloseQuestions)
+            {
+                foreach (var answer in question.Answers)
+                {
+                    if (answer.IsChecked == answer.IsRight)
+                        right++;
+                    else
+                        wrong++;
+                }
+            }
+
+            test.Result = Math.Round(Convert.ToDouble(right / (right + wrong) * 100));
+
             return View(test);
         }
 
@@ -160,14 +176,47 @@ namespace TestSystem.Controllers
 
             for (int i = 0; i < QUESTION_NUMBER; i++)
             {
-                var cq = new CloseQuestion(listQuestions.ElementAt(index * QUESTION_NUMBER + i))
-                {
-                    Answers = await context.Answers.Where(a => a.QuestionId == index * QUESTION_NUMBER + i + 1).ToListAsync()
-                };
+                var cq = new CloseQuestion(listQuestions.ElementAt(index * QUESTION_NUMBER + i));
+                cq.Answers = await context.Answers.Where(a => a.QuestionId == cq.Id).ToListAsync();
+                
                 test.CloseQuestions.Add(cq);
             }
 
             return View(test);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CategoryTestAsync(Test test)
+        {
+            int currentTest;
+            try
+            {
+                List<UserAnswer> list = await context.UserAnswers.ToListAsync();
+                currentTest = list.ElementAt(list.Count - 1).TestTry + 1;
+            }
+
+            catch
+            {
+                currentTest = 1;
+            }
+
+            foreach (var question in test.CloseQuestions)
+            {
+                string answerStr = " ";
+                foreach (var answer in question.Answers)
+                {
+                    if (answer.IsChecked)
+                    {
+                        answerStr += $"{answer.Id} ";
+                    }
+                }
+
+                var userAnswer = new UserAnswer(User.Identity.Name, question.Id, answerStr, currentTest);
+                context.UserAnswers.Add(userAnswer);
+            }
+
+            await context.SaveChangesAsync();
+            return RedirectToAction("TestResult", new { testTry = currentTest });
         }
     }
 }

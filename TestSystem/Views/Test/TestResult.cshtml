@@ -17,6 +17,7 @@
 
     foreach (var answer in question.Answers)
     {
+
         if (answer.IsChecked == true && answer.IsRight == true)
         {
             <p>
@@ -41,5 +42,9 @@
         }
     }
 }
+
+<h3>Результат:</h3>
+<h5>Процент правильно определённых ответов: @Model.Result </h5>
+<h5>Оценка: @Math.Round(Model.Result / 10)</h5>
 
 

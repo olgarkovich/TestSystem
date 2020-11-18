@@ -13,6 +13,7 @@ namespace TestSystem.Models
         public List<OpenQuestion> OpenQuestions { get; set; }
         public string Category { get; set; }
         public List<uint> UserChoices { get; set; }
+        public double Result { get; set; }
 
         public Test() { }
 

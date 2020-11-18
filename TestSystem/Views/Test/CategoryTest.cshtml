@@ -6,29 +6,36 @@
 
 <h2>@Model.Name</h2>
 
-@foreach (var item in Model.CloseQuestions)
-{
-    <br />
-    <p>
-        <b>
-            @(Model.CloseQuestions.IndexOf(item) + 1). @Html.DisplayFor(modelItem => item.Task)
-        </b>
+<form method="post">
+    @Html.HiddenFor(name => Model.Name)
+    @Html.HiddenFor(category => Model.Category)
 
-    </p>
-    foreach (var a in item.Answers)
+    @for (int n = 0; n < Model.CloseQuestions.Count(); n++)
     {
-        <p><pre>    @Html.CheckBox($"option{a.Id}", false)  @a.TextAnswer" </pre></p>
+        <br />
+        <p>
+            <b>
+                @(n + 1). @Html.DisplayFor(item => Model.CloseQuestions[n].Task)
+            </b>
+
+        </p>
+
+        for (int i = 0; i < Model.CloseQuestions[n].Answers.Count; i++)
+        {
+            @Html.HiddenFor(q => Model.CloseQuestions[i].Id)
+            @Html.HiddenFor(q => Model.CloseQuestions[i].Category)
+            @Html.HiddenFor(q => Model.CloseQuestions[i].IsOpen)
+            <p>
+                <pre>  @Html.CheckBoxFor(a => Model.CloseQuestions[n].Answers[i].IsChecked)<label>  @Model.CloseQuestions[n].Answers[i].TextAnswer</label></pre>
+                @Html.HiddenFor(a => Model.CloseQuestions[n].Answers[i].Id)
+                @Html.HiddenFor(a => Model.CloseQuestions[n].Answers[i].QuestionId)
+                @Html.HiddenFor(a => Model.CloseQuestions[n].Answers[i].TextAnswer)
+                @Html.HiddenFor(a => Model.CloseQuestions[n].Answers[i].IsRight)
+            </p>
+        }
     }
 
-}
-
-<html>
-<head>
-    <title>Кнопка</title>
-</head>
-<body>
-    <form>
-        <p><input type="submit"></p>
-    </form>
-</body>
-</html>
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+</form>
