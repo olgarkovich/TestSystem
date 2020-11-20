@@ -12,7 +12,10 @@ namespace TestSystem.Controllers
     public class TestController : Controller
     {
         private readonly AppDbContext context;
-        const int QUESTION_NUMBER = 5;
+        const int QUESTIONS_NUMBER = 5;
+        const int SPELLING_QUESTION_NUMBER = 3;
+        const int PUNCT_QUESTION_NUMBER = 3;
+        const int OPEN_QUESTION_NUMBER = 2;
 
         public TestController(AppDbContext context)
         {
@@ -24,7 +27,8 @@ namespace TestSystem.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 var listQuestions = await context.Questions.ToListAsync();
-                var countTest = listQuestions.Count / QUESTION_NUMBER;
+                
+                var countTest = listQuestions.Count / (QUESTIONS_NUMBER * 2);
 
                 List<Test> listGeneralTest = new List<Test>();
 
@@ -47,20 +51,47 @@ namespace TestSystem.Controllers
         public async Task<IActionResult> GeneralTestAsync(int index = 0)
         {
             var listQuestions = await context.Questions.ToListAsync();
+            var listAnswers = await context.Answers.ToListAsync();
+
+            var listSpelling = new List<Question>(listQuestions.Where(a => a.Category == "Орфография" && !a.IsOpen));
+            var listPunctuation = new List<Question>(listQuestions.Where(a => a.Category == "Пунктуация" && !a.IsOpen));
+            var listSyntax = new List<Question>(listQuestions.Where(a => a.Category == "Синтаксис" && !a.IsOpen));
+            var listMorphology = new List<Question>(listQuestions.Where(a => a.Category == "Морфология" && !a.IsOpen));
+            var listOpen = new List<Question>(listQuestions.Where(a => a.IsOpen));
+            
             Test test = new Test
             {
-                CloseQuestions = new List<CloseQuestion>()
+                CloseQuestions = new List<CloseQuestion>(),
+                OpenQuestions = new List<OpenQuestion>()
             };
 
             test.Name = $"Общий тест {index + 1}";
 
-            for (int i = 0; i < QUESTION_NUMBER; i++) 
+            for (int i = 0; i < SPELLING_QUESTION_NUMBER; i++)
             {
-                var cq = new CloseQuestion(listQuestions.ElementAt(index * QUESTION_NUMBER + i))
-                {
-                    Answers = await context.Answers.Where(a => a.QuestionId == index * QUESTION_NUMBER + i + 1).ToListAsync()
-                };
+                var cq = new CloseQuestion(listSpelling.ElementAt(index * SPELLING_QUESTION_NUMBER + i));
                 test.CloseQuestions.Add(cq);
+            }
+
+            for (int i = 0; i < PUNCT_QUESTION_NUMBER; i++)
+            {
+                var cq = new CloseQuestion(listPunctuation.ElementAt(index * PUNCT_QUESTION_NUMBER + i));
+                test.CloseQuestions.Add(cq);
+            }
+
+            test.CloseQuestions.Add(new CloseQuestion(listMorphology.ElementAt(index + 1)));
+            test.CloseQuestions.Add(new CloseQuestion(listSyntax.ElementAt(index + 1)));
+
+            foreach (var q in test.CloseQuestions)
+            {
+                q.Answers = new List<Answer>(listAnswers.Where(a => a.QuestionId == q.Id));
+            }
+
+            for (int i = 0; i < OPEN_QUESTION_NUMBER; i++)
+            {
+                var cq = new OpenQuestion(listOpen.ElementAt(index * OPEN_QUESTION_NUMBER + i));
+                cq.RightAnswer = listAnswers.Where(a => a.QuestionId == cq.Id).ElementAt(0);
+                test.OpenQuestions.Add(cq);
             }
 
             return View(test);
@@ -70,29 +101,52 @@ namespace TestSystem.Controllers
         {
             var userAnswers = await context.UserAnswers.Where(t => t.TestTry == testTry).ToListAsync();
             var listQuestions = await context.Questions.ToListAsync();
+            var listAnswer = await context.Answers.ToListAsync();
+            
             Test test = new Test
             {
-                CloseQuestions = new List<CloseQuestion>()
+                CloseQuestions = new List<CloseQuestion>(),
+                OpenQuestions = new List<OpenQuestion>()
             };
 
 
             foreach (var userAnswer in userAnswers)
             {
-                var cq = new CloseQuestion(listQuestions.ElementAt(Convert.ToInt32(userAnswer.QuestionId - 1)))
-                {
-                    Answers = await context.Answers.Where(a => a.QuestionId == userAnswer.QuestionId).ToListAsync()
-                };
+                var q = new Question();
+                q = listQuestions.Where(q => q.Id == userAnswer.QuestionId).ElementAt(0);
 
-                var answerStr = userAnswer.Answer;
-
-                foreach (var answer in cq.Answers)
+                if (q.IsOpen) 
                 {
-                    if (answerStr.IndexOf($" {answer.Id} ") != -1)
+                    var oq = new OpenQuestion(q);
+                    oq.Choice = userAnswer.Answer;
+                    oq.RightAnswer = listAnswer.Where(a => a.QuestionId == q.Id).ElementAt(0);
+
+                    if (oq.Choice != null)
                     {
-                        answer.IsChecked = true;
+                        oq.Choice.ToLower();
                     }
+                    oq.RightAnswer.TextAnswer.ToLower();
+
+                    test.OpenQuestions.Add(oq);
                 }
-                test.CloseQuestions.Add(cq);
+                else
+                {
+                    var cq = new CloseQuestion(q)
+                    {
+                        Answers = await context.Answers.Where(a => a.QuestionId == userAnswer.QuestionId).ToListAsync()
+                    };
+
+                    var answerStr = userAnswer.Answer;
+
+                    foreach (var answer in cq.Answers)
+                    {
+                        if (answerStr.IndexOf($" {answer.Id} ") != -1)
+                        {
+                            answer.IsChecked = true;
+                        }
+                    }
+                    test.CloseQuestions.Add(cq);
+                }
             }
 
             double right = 0;
@@ -107,6 +161,14 @@ namespace TestSystem.Controllers
                     else
                         wrong++;
                 }
+            }
+
+            foreach (var question in test.OpenQuestions)
+            {
+                if (question.Choice == question.RightAnswer.TextAnswer)
+                    right++;
+                else
+                    wrong++;
             }
 
             test.Result = Math.Round(Convert.ToDouble(right / (right + wrong) * 100));
@@ -141,7 +203,13 @@ namespace TestSystem.Controllers
                     }
                 }
 
-                var userAnswer = new UserAnswer(User.Identity.Name, question.Id, answerStr, currentTest);
+                var userAnswer = new UserAnswer(User.Identity.Name, question.Answers[0].QuestionId, answerStr, currentTest);
+                context.UserAnswers.Add(userAnswer);
+            }
+
+            foreach (var question in test.OpenQuestions)
+            {
+                var userAnswer = new UserAnswer(User.Identity.Name, question.Id, question.Choice, currentTest);
                 context.UserAnswers.Add(userAnswer);
             }
 
@@ -151,8 +219,8 @@ namespace TestSystem.Controllers
 
         public async Task<IActionResult> CategoryAsync(string category)
         {
-            var listQuestions = await context.Questions.Where(q => q.Category == category).ToListAsync();
-            var countTest = listQuestions.Count / QUESTION_NUMBER;
+            var listQuestions = await context.Questions.Where(q => q.Category == category && !q.IsOpen).ToListAsync();
+            var countTest = listQuestions.Count / QUESTIONS_NUMBER;
 
             List<Test> listCategoryTest = new List<Test>();
 
@@ -165,8 +233,8 @@ namespace TestSystem.Controllers
 
         public async Task<IActionResult> CategoryTestAsync(int index = 0, string category = "Орфография")
         {
-            var listQuestions = await context.Questions.Where(q => q.Category == category).ToListAsync();
-            
+            var listQuestions = await context.Questions.Where(q => q.Category == category && !q.IsOpen).ToListAsync();
+
             Test test = new Test
             {
                 CloseQuestions = new List<CloseQuestion>()
@@ -174,11 +242,11 @@ namespace TestSystem.Controllers
 
             test.Name = $"Тест по разделу '{category}' {index + 1}";
 
-            for (int i = 0; i < QUESTION_NUMBER; i++)
+            for (int i = 0; i < QUESTIONS_NUMBER; i++)
             {
-                var cq = new CloseQuestion(listQuestions.ElementAt(index * QUESTION_NUMBER + i));
+                var cq = new CloseQuestion(listQuestions.ElementAt(index * QUESTIONS_NUMBER + i));
                 cq.Answers = await context.Answers.Where(a => a.QuestionId == cq.Id).ToListAsync();
-                
+
                 test.CloseQuestions.Add(cq);
             }
 

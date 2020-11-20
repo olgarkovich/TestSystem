@@ -29,7 +29,6 @@ namespace TestSystem
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddTransient<ViewComponents.ITimeService, ViewComponents.TimeService>();
 
             services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("AppDbContext")));

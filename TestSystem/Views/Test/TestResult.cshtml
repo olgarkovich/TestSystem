@@ -4,13 +4,12 @@
     ViewData["Title"] = "Общий тест";
 }
 
-
 @foreach (var question in Model.CloseQuestions)
 {
     <br />
     <p>
         <b>
-            @(question.Id). @Html.DisplayFor(item => question.Task)
+            @(Model.CloseQuestions.IndexOf(question) + 1). @Html.DisplayFor(item => question.Task)
         </b>
 
     </p>
@@ -43,8 +42,42 @@
     }
 }
 
+@foreach (var question in Model.OpenQuestions)
+{
+    <br />
+    <p>
+        <b>
+            @(Model.OpenQuestions.IndexOf(question) + 9). @Html.DisplayFor(item => question.Task)
+        </b>
+
+    </p>
+
+    if (question.RightAnswer.TextAnswer == question.Choice)
+    {
+    <p><h5 style="background:rgba(84, 255, 98, 0.87)">Правильный ответ:</h5></p>
+    <p>
+        @Html.TextBoxFor(a => question.Choice, new { @readonly = true })
+    </p>
+    }
+
+    else
+    {
+    <p>
+        <h5 style="background:rgb(255, 62, 62)">Неверный ответ:</h5>
+    </p>
+    <p> 
+        @Html.TextBoxFor(a => question.Choice, new { @readonly = true })
+    </p>
+    <p>Правильный вариант ответа</p>
+    <p>
+        @Html.TextBoxFor(a => question.RightAnswer.TextAnswer, new { @readonly = true })
+    </p>
+
+    }
+}
+
 <h3>Результат:</h3>
-<h5>Процент правильно определённых ответов: @Model.Result </h5>
+<h5>Процент правильно определённых ответов: @Model.Result %</h5>
 <h5>Оценка: @Math.Round(Model.Result / 10)</h5>
 
 

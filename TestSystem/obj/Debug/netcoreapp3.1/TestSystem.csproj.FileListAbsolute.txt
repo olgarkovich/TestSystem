@@ -68,8 +68,6 @@ D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\TestSystem.dll
 D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\TestSystem.pdb
 D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\TestSystem.genruntimeconfig.cache
 D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\TestSystem.csproj.CopyComplete
-D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\Razor\Views\User\Index.cshtml.g.cs
-D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\Razor\Views\User\Welcome.cshtml.g.cs
 D:\labs\ASP\TestSystem\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 D:\labs\ASP\TestSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 D:\labs\ASP\TestSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -210,7 +208,6 @@ D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\TestSystem.csproj.CoreCompileInpu
 D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\TestSystem.MvcApplicationPartsAssemblyInfo.cache
 D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\scopedcss\bundle\TestSystem.styles.css
 D:\labs\ASP\TestSystem\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
-D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\Razor\Views\CloseQuestion\Index.cshtml.g.cs
 D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\TestSystem.csprojAssemblyReference.cache
 D:\labs\ASP\TestSystem\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
 D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\Razor\Views\Test\Index.cshtml.g.cs

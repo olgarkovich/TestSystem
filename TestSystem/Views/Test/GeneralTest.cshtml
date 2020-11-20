@@ -15,7 +15,7 @@
         <br />
         <p>
             <b>
-                @(n + 1). @Html.DisplayFor(item => Model.CloseQuestions[n].Task)
+                @(n + 1). <span style="white-space: pre-line">@Model.CloseQuestions[n].Task</span>
             </b>
 
         </p>
@@ -35,50 +35,31 @@
         }
     }
 
+    @for (int n = 0; n < Model.OpenQuestions.Count; n++)
+    {
+        @Html.HiddenFor(q => Model.OpenQuestions[n].Id)
+        @Html.HiddenFor(q => Model.OpenQuestions[n].Category)
+        @Html.HiddenFor(q => Model.OpenQuestions[n].IsOpen)
+        <br />
+        <p>
+            <b>
+                @(n + Model.CloseQuestions.Count + 1). <span style="white-space: pre-line">@Model.OpenQuestions[n].Task</span>
+            </b>
+        </p>
+        <p>
+            @Html.TextBoxFor(a => Model.OpenQuestions[n].Choice)
+            @Html.HiddenFor(a => Model.OpenQuestions[n].RightAnswer)
+            @Html.HiddenFor(a => Model.OpenQuestions[n].RightAnswer.Id)
+            @Html.HiddenFor(a => Model.OpenQuestions[n].RightAnswer.IsRight)
+            @Html.HiddenFor(a => Model.OpenQuestions[n].RightAnswer.TextAnswer)
+            @Html.HiddenFor(a => Model.OpenQuestions[n].RightAnswer.QuestionId)
+        </p>
+    }
+
     <p>
         <input type="submit" value="Отправить" />
     </p>
 </form>
 
-@*<form method="get">
-
-        @foreach (var question in Model.CloseQuestions)
-        {
-            <br />
-            <p>
-                <b>
-                    @(n + 1). @Html.DisplayFor(item => question.Task)
-                </b>
-
-            </p>
-
-            foreach (var answer in question.Answers)
-            {
-                if (answer.IsChecked == true && answer.IsRight == true)
-                {
-                    <p>
-                        <h5 style="background:rgba(84, 255, 98, 0.87)">
-                            <pre>@Html.CheckBoxFor(a => answer.IsChecked)<label>  @answer.TextAnswer</label></pre>
-                        </h5>
-                    </p>
-                }
-                else if (answer.IsChecked != answer.IsRight)
-                {
-                    <p>
-                        <h5 style="background:rgb(255, 62, 62)">
-                            <pre>@Html.CheckBoxFor(a => answer.IsChecked)<label>  @answer.TextAnswer</label></pre>
-                        </h5>
-                    </p>
-                }
-                else
-                {
-                    <p>
-                        <pre>@Html.CheckBoxFor(a => answer.IsChecked)<label>  @answer.TextAnswer</label></pre>
-                    </p>
-                }
-            }
-        }
-
-    </form>*@
 
 
