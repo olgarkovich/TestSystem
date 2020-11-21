@@ -13,6 +13,7 @@ using TestSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using TestSystem.Models;
+using TestSystem.Services;
 
 namespace TestSystem
 {
@@ -38,6 +39,8 @@ namespace TestSystem
 
             services.AddIdentity<Profile, IdentityRole>()
                 .AddEntityFrameworkStores<AppIdentityDbContext>();
+
+            services.AddTransient<EmailService>();
 
             //////
         }
