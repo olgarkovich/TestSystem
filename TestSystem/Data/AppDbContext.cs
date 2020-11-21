@@ -30,7 +30,7 @@ namespace TestSystem.Data
         public AppDbContext CreateDbContext(string[] args)
         {
             var builder = new DbContextOptionsBuilder<AppDbContext>();
-            builder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=AppDbContext-1;Trusted_Connection=True;MultipleActiveResultSets=true;");
+            builder.UseSqlServer("Server=testsystem.database.windows.net;Database=testsystemdb;Trusted_Connection=false;MultipleActiveResultSets=true;User ID=testsystem;Password=7427Anna;Connection Lifetime=3;Max Pool Size=3;");
             return new AppDbContext(builder.Options);
         }
     }
