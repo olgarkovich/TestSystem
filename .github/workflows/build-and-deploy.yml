@@ -14,10 +14,10 @@ jobs:
         dotnet-version: '3.1'
 
     - name: Build
-      run: dotnet build ./TestSystem/TestSystem.csproj --configuration Release
+      run: dotnet build ./ASP/TestSystem/TestSystem.csproj --configuration Release
 
     - name: Publish app for deploy
-      run: dotnet publish ./TestSystem/TestSystem.csproj -c Release -o ${{env.DOTNET_ROOT}}/published
+      run: dotnet publish ./ASP/TestSystem/TestSystem.csproj -c Release -o ${{env.DOTNET_ROOT}}/published
 
     - name: Deploy to Azure WebApp
       uses: azure/webapps-deploy@v1
