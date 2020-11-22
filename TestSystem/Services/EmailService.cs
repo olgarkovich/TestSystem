@@ -14,7 +14,7 @@ namespace TestSystem.Services
             MailMessage message = new MailMessage();
             message.From = new MailAddress("ujhkiyjh@gmail.com", subject);
             message.To.Add(to_address);
-            message.Subject = "Test";
+            message.Subject = "TestSystem";
             message.Body = body;
             using (SmtpClient client = new SmtpClient("smtp.gmail.com"))
             {

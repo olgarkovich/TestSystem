@@ -1,0 +1,26 @@
+﻿@model TestSystem.Models.Result
+
+<h2>Отправка письма с результатом на почту</h2>
+
+<form method="post">
+    <h5>Оценка за выполненный тест: @Model.Mark</h5>
+    <p>Имя: @Model.Name</p>
+    <p>Фамилия: @Model.Surname</p>
+
+    <p>Введите адрес почты для отправки письма с результатом теста</p>
+    @Html.TextBoxFor(a => a.ToEmail)
+    @Html.HiddenFor(a => a.Mark)
+    @Html.HiddenFor(a => a.Surname)
+    @Html.HiddenFor(a => a.Name)
+    
+    @if(Model.Comment != null)
+     {
+         <p style="color:rgb(255, 62, 62)">
+             @Model.Comment
+         </p>
+     }
+
+    <p>
+    <input type="submit" value="Отправить" />
+    </p>
+</form>

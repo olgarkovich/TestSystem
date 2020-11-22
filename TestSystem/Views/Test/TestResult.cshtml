@@ -80,4 +80,6 @@
 <h5>Процент правильно определённых ответов: @Model.Result %</h5>
 <h5>Оценка: @Math.Round(Model.Result / 10)</h5>
 
+@Html.ActionLink("Отправить результат на почту", "SendMail", "Result", new { mark = @Math.Round(Model.Result / 10) }, null)
+
 
