@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YMVDN8VFh0LvzcMDSEYhHmz9qnMI0COXKW/RTdDbqgTiOR/5jBmDXe4RmdlsLm3CJS0w1P8TiZcM5jjjKH/ddw==",
+  "dgSpecHash": "52aKiLLX4+eXz6v0S4XzL/BQBHpZ41lVXIqc7HCqjgMCmHN9vJdLcrEfZ7iCwZLLoYZ3s9C2tqM0IIyaWmrqpA==",
   "success": true,
   "projectFilePath": "D:\\labs\\ASP\\TestSystem\\TestSystem.csproj",
   "expectedPackageFiles": [
@@ -70,6 +70,9 @@
     "C:\\Users\\olgag\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\olgag\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\olgag\\.nuget\\packages\\newtonsoft.json\\10.0.1\\newtonsoft.json.10.0.1.nupkg.sha512",
+    "C:\\Users\\olgag\\.nuget\\packages\\nlog\\4.7.2\\nlog.4.7.2.nupkg.sha512",
+    "C:\\Users\\olgag\\.nuget\\packages\\nlog.extensions.logging\\1.6.4\\nlog.extensions.logging.1.6.4.nupkg.sha512",
+    "C:\\Users\\olgag\\.nuget\\packages\\nlog.web.aspnetcore\\4.9.3\\nlog.web.aspnetcore.4.9.3.nupkg.sha512",
     "C:\\Users\\olgag\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\olgag\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\olgag\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

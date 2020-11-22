@@ -219,3 +219,7 @@ D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.csht
 D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
 D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\Razor\Views\Result\SendMail.cshtml.g.cs
 D:\labs\ASP\TestSystem\bin\Debug\netcoreapp3.1\appsettings.Production.json
+D:\labs\ASP\TestSystem\bin\Debug\netcoreapp3.1\nlog.config
+D:\labs\ASP\TestSystem\bin\Debug\netcoreapp3.1\NLog.dll
+D:\labs\ASP\TestSystem\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+D:\labs\ASP\TestSystem\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll

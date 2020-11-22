@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using TestSystem.Data;
 using TestSystem.Models;
@@ -13,11 +14,14 @@ namespace TestSystem.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IConfiguration configuration;
         private readonly AppDbContext context;
 
-        public HomeController(ILogger<HomeController> logger, AppDbContext context)
+        public HomeController(ILogger<HomeController> logger, AppDbContext context, IConfiguration configuration)
         {
             _logger = logger;
+            _logger.LogDebug(1, "NLog injected into HomeController");
+            this.configuration = configuration;
             this.context = context;
         }
 
