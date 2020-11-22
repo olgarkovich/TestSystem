@@ -1,0 +1,5 @@
+2020-11-22 22:42:13.2777||DEBUG|TestSystem.Program|init main 
+2020-11-22 22:42:13.9575||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2020-11-22 22:42:13.9675||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2020-11-22 22:42:13.9752||INFO|Microsoft.Hosting.Lifetime|Content root path: D:\labs\ASP\TestSystem 
+2020-11-22 22:42:26.8429|1|DEBUG|TestSystem.Controllers.HomeController|NLog injected into HomeController 
