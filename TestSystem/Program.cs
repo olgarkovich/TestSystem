@@ -13,9 +13,11 @@ namespace TestSystem
 {
     public class Program
     {
+        static string currentEnv = "";
         public static void Main(string[] args)
         {
-            //CreateHostBuilder(args).Build().Run();
+            var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+            currentEnv = config.GetSection("Env").Value;
             var host = CreateHostBuilder(args).Build();
 
             using (var scope = host.Services.CreateScope())
@@ -30,6 +32,11 @@ namespace TestSystem
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((a, config) =>
+                {
+                    config.AddJsonFile("appsettings.json");
+                    config.AddJsonFile($"appsettings.{currentEnv}.json");
+                })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

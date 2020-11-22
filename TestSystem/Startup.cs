@@ -41,7 +41,7 @@ namespace TestSystem
                 .AddEntityFrameworkStores<AppIdentityDbContext>();
 
             services.AddTransient<EmailService>();
-
+            services.AddSingleton(Configuration);
             //////
         }
 
