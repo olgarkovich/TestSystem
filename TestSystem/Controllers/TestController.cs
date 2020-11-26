@@ -27,7 +27,7 @@ namespace TestSystem.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 var listQuestions = await context.Questions.ToListAsync();
-                
+
                 var countTest = listQuestions.Count / (QUESTIONS_NUMBER * 2);
 
                 List<Test> listGeneralTest = new List<Test>();

@@ -1,0 +1,13 @@
+2020-11-24 22:17:09.5828||DEBUG|TestSystem.Program|init main 
+2020-11-24 22:17:11.2467||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2020-11-24 22:17:11.2467||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2020-11-24 22:17:11.2610||INFO|Microsoft.Hosting.Lifetime|Content root path: D:\labs\ASP\TestSystem 
+2020-11-24 23:06:48.5552||WARN|Microsoft.AspNetCore.Identity.UserManager|Invalid password for user. 
+2020-11-24 23:06:48.5566|2|WARN|Microsoft.AspNetCore.Identity.SignInManager|User 7b0f2263-42b5-4ba9-86c6-30a3c61418aa failed to provide the correct password. 
+2020-11-24 23:06:56.3999||WARN|Microsoft.AspNetCore.Identity.UserManager|Invalid password for user. 
+2020-11-24 23:06:56.4674|2|WARN|Microsoft.AspNetCore.Identity.SignInManager|User 7b0f2263-42b5-4ba9-86c6-30a3c61418aa failed to provide the correct password. 
+2020-11-24 23:24:04.1492||DEBUG|TestSystem.Program|init main 
+2020-11-24 23:24:04.6347||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2020-11-24 23:24:04.6429||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2020-11-24 23:24:04.6550||INFO|Microsoft.Hosting.Lifetime|Content root path: D:\labs\ASP\TestSystem 
+2020-11-24 23:29:47.7568||DEBUG|TestSystem.Program|init main 

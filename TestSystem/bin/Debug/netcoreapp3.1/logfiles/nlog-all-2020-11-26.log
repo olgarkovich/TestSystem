@@ -1,0 +1,70 @@
+2020-11-26 13:00:36.6432||DEBUG|TestSystem.Program|init main 
+2020-11-26 13:11:03.6211||DEBUG|TestSystem.Program|init main 
+2020-11-26 13:11:05.3597||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2020-11-26 13:11:05.3597||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2020-11-26 13:11:05.3775||INFO|Microsoft.Hosting.Lifetime|Content root path: D:\labs\ASP\TestSystem 
+2020-11-26 13:11:40.7081||DEBUG|TestSystem.Program|init main 
+2020-11-26 13:11:51.7232||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2020-11-26 13:11:51.7332||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Production 
+2020-11-26 13:11:51.7332||INFO|Microsoft.Hosting.Lifetime|Content root path: D:\labs\ASP\TestSystem 
+2020-11-26 13:11:59.7992|1|ERROR|Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware|An unhandled exception has occurred while executing the request. System.ArgumentException: The path in 'value' must start with '/'. (Parameter 'value')
+   at Microsoft.AspNetCore.Http.PathString..ctor(String value)
+   at Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.<>c__DisplayClass6_0.<<UseStatusCodePagesWithReExecute>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2020-11-26 13:12:00.3492|3|ERROR|Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware|An exception was thrown attempting to execute the error handler. System.ArgumentException: The path in 'value' must start with '/'. (Parameter 'value')
+   at Microsoft.AspNetCore.Http.PathString..ctor(String value)
+   at Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.<>c__DisplayClass6_0.<<UseStatusCodePagesWithReExecute>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+2020-11-26 13:12:00.3571|2|ERROR|Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer|Connection ID "18302628887244308759", Request ID "80000118-0000-fe00-b63f-84710c7967bb": An unhandled exception was thrown by the application. System.ArgumentException: The path in 'value' must start with '/'. (Parameter 'value')
+   at Microsoft.AspNetCore.Http.PathString..ctor(String value)
+   at Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.<>c__DisplayClass6_0.<<UseStatusCodePagesWithReExecute>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2020-11-26 13:19:11.6711||DEBUG|TestSystem.Program|init main 
+2020-11-26 13:19:21.5188||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2020-11-26 13:19:21.5188||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Production 
+2020-11-26 13:19:21.5310||INFO|Microsoft.Hosting.Lifetime|Content root path: D:\labs\ASP\TestSystem 
+2020-11-26 13:32:30.5650||DEBUG|TestSystem.Program|init main 
+2020-11-26 13:32:31.0534||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2020-11-26 13:32:31.0590||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Production 
+2020-11-26 13:32:31.0590||INFO|Microsoft.Hosting.Lifetime|Content root path: D:\labs\ASP\TestSystem 
+2020-11-26 13:36:18.4162||DEBUG|TestSystem.Program|init main 
+2020-11-26 13:36:18.8342||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2020-11-26 13:36:18.8342||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Production 
+2020-11-26 13:36:18.8467||INFO|Microsoft.Hosting.Lifetime|Content root path: D:\labs\ASP\TestSystem 
+2020-11-26 13:39:37.3004||DEBUG|TestSystem.Program|init main 
+2020-11-26 13:39:37.7810||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2020-11-26 13:39:37.7810||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Production 
+2020-11-26 13:39:37.7982||INFO|Microsoft.Hosting.Lifetime|Content root path: D:\labs\ASP\TestSystem 
+2020-11-26 13:46:37.6545||DEBUG|TestSystem.Program|init main 
+2020-11-26 13:46:38.1609||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2020-11-26 13:46:38.1663||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Production 
+2020-11-26 13:46:38.1663||INFO|Microsoft.Hosting.Lifetime|Content root path: D:\labs\ASP\TestSystem 
+2020-11-26 13:47:04.4313||DEBUG|TestSystem.Program|init main 
+2020-11-26 13:47:04.8359||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2020-11-26 13:47:04.8414||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Production 
+2020-11-26 13:47:04.8414||INFO|Microsoft.Hosting.Lifetime|Content root path: D:\labs\ASP\TestSystem 
+2020-11-26 13:49:36.0903||DEBUG|TestSystem.Program|init main 
+2020-11-26 13:49:36.5780||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2020-11-26 13:49:36.5780||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Production 
+2020-11-26 13:49:36.5921||INFO|Microsoft.Hosting.Lifetime|Content root path: D:\labs\ASP\TestSystem 
+2020-11-26 13:50:14.5264||DEBUG|TestSystem.Program|init main 
+2020-11-26 13:50:14.9918||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2020-11-26 13:50:14.9973||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Production 
+2020-11-26 13:50:14.9973||INFO|Microsoft.Hosting.Lifetime|Content root path: D:\labs\ASP\TestSystem 
+2020-11-26 13:51:08.8179||DEBUG|TestSystem.Program|init main 
+2020-11-26 13:51:09.2860||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2020-11-26 13:51:09.2860||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Production 
+2020-11-26 13:51:09.2986||INFO|Microsoft.Hosting.Lifetime|Content root path: D:\labs\ASP\TestSystem 
+2020-11-26 13:52:01.7284||DEBUG|TestSystem.Program|init main 
+2020-11-26 13:52:02.1599||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2020-11-26 13:52:02.1599||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Production 
+2020-11-26 13:52:02.1745||INFO|Microsoft.Hosting.Lifetime|Content root path: D:\labs\ASP\TestSystem 
