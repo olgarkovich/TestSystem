@@ -2213,3 +2213,35 @@ Error Number:208,State:1,Class:16
 2020-11-28 22:08:03.3155||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
 2020-11-28 22:08:03.3155||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
 2020-11-28 22:08:03.3323||INFO|Microsoft.Hosting.Lifetime|Content root path: D:\labs\ASP\TestSystem 
+2020-11-28 22:34:56.3646||DEBUG|TestSystem.Program|init main 
+2020-11-28 22:34:58.2288||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2020-11-28 22:34:58.2507||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2020-11-28 22:34:58.2655||INFO|Microsoft.Hosting.Lifetime|Content root path: D:\labs\ASP\TestSystem 
+2020-11-28 22:43:03.2164||DEBUG|TestSystem.Program|init main 
+2020-11-28 22:43:03.8899||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2020-11-28 22:43:03.8954||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2020-11-28 22:43:03.8954||INFO|Microsoft.Hosting.Lifetime|Content root path: D:\labs\ASP\TestSystem 
+2020-11-28 22:46:44.9764||DEBUG|TestSystem.Program|init main 
+2020-11-28 22:46:45.5091||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2020-11-28 22:46:45.5091||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2020-11-28 22:46:45.5249||INFO|Microsoft.Hosting.Lifetime|Content root path: D:\labs\ASP\TestSystem 
+2020-11-28 22:51:09.3407||DEBUG|TestSystem.Program|init main 
+2020-11-28 22:51:10.1897||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2020-11-28 22:51:10.1897||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2020-11-28 22:51:10.1897||INFO|Microsoft.Hosting.Lifetime|Content root path: D:\labs\ASP\TestSystem 
+2020-11-28 23:02:49.0152||DEBUG|TestSystem.Program|init main 
+2020-11-28 23:02:49.5026||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2020-11-28 23:02:49.5026||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2020-11-28 23:02:49.5181||INFO|Microsoft.Hosting.Lifetime|Content root path: D:\labs\ASP\TestSystem 
+2020-11-28 23:03:57.7300||DEBUG|TestSystem.Program|init main 
+2020-11-28 23:03:58.1467||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2020-11-28 23:03:58.1467||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2020-11-28 23:03:58.1655||INFO|Microsoft.Hosting.Lifetime|Content root path: D:\labs\ASP\TestSystem 
+2020-11-28 23:21:15.9079||DEBUG|TestSystem.Program|init main 
+2020-11-28 23:21:17.9417||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2020-11-28 23:21:17.9417||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2020-11-28 23:21:17.9417||INFO|Microsoft.Hosting.Lifetime|Content root path: D:\labs\ASP\TestSystem 
+2020-11-28 23:23:03.7404||DEBUG|TestSystem.Program|init main 
+2020-11-28 23:23:04.1583||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2020-11-28 23:23:04.1633||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2020-11-28 23:23:04.1633||INFO|Microsoft.Hosting.Lifetime|Content root path: D:\labs\ASP\TestSystem 

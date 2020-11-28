@@ -21,7 +21,14 @@ namespace TestSystem
             var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
             currentEnv = config.GetSection("Env").Value;
             var host = CreateHostBuilder(args).Build();
-            
+
+            using (var scope = host.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+
+                SeedData.Initialize(services);
+            }
+
             var logger = NLog.Web.NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
             try
             {
@@ -38,13 +45,6 @@ namespace TestSystem
             {
                 // Ensure to flush and stop internal timers/threads before application-exit (Avoid segmentation fault on Linux)
                 NLog.LogManager.Shutdown();
-            }
-
-            using (var scope = host.Services.CreateScope())
-            {
-                var services = scope.ServiceProvider;
-
-                    SeedData.Initialize(services);
             }
         }
 

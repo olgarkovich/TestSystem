@@ -22,18 +22,14 @@ namespace TestSystem.Services
 
         public async Task Send(string text, string userName)
         {
-            //var message = new Message
-            //{
-            //    Text = text,
-            //    Username = userName
-            //};
-            //context.Messages.Add(message);
-            //await context.SaveChangesAsync();
+            var message = new Message
+            {
+                Text = text,
+                Username = userName
+            };
+            context.Messages.Add(message);
+            await context.SaveChangesAsync();
             await Clients.All.SendAsync("Send", text, userName);
         }
-        //public async Task Send(string message, string userName)
-        //{
-        //    await Clients.All.SendAsync("Send", message, userName);
-        //}
     }
 }
