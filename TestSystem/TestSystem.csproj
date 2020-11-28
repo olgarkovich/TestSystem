@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <None Include=".github\workflows\build-and-deploy.yml" />
+    <None Include="wwwroot\images\home.png" />
   </ItemGroup>
 
 </Project>

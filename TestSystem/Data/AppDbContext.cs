@@ -23,6 +23,7 @@ namespace TestSystem.Data
         public DbSet<Answer> Answers { get; set; }
         public DbSet<UserAnswer> UserAnswers { get; set; }
         public DbSet<Profile> Profiles { get; set; }
+        public DbSet<Message> Messages { get; set; }
     }
 
     public class Factory : IDesignTimeDbContextFactory<AppDbContext>

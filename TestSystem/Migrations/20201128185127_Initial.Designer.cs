@@ -10,7 +10,7 @@ using TestSystem.Data;
 namespace TestSystem.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20201117192638_Initial")]
+    [Migration("20201128185127_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,6 +43,24 @@ namespace TestSystem.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Answers");
+                });
+
+            modelBuilder.Entity("TestSystem.Models.Message", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Messages");
                 });
 
             modelBuilder.Entity("TestSystem.Models.Profile", b =>

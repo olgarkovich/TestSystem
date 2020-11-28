@@ -1,5 +1,9 @@
 ﻿@model TestSystem.Models.Result
 
+@{
+    ViewData["Title"] = "Отправка результата";
+}
+
 <h2>Отправка письма с результатом на почту</h2>
 
 <form method="post">
@@ -12,15 +16,15 @@
     @Html.HiddenFor(a => a.Mark)
     @Html.HiddenFor(a => a.Surname)
     @Html.HiddenFor(a => a.Name)
-    
-    @if(Model.Comment != null)
-     {
-         <p style="color:rgb(255, 62, 62)">
-             @Model.Comment
-         </p>
-     }
+
+    @if (Model.Comment != null)
+    {
+        <p style="color:rgb(255, 62, 62)">
+            @Model.Comment
+        </p>
+    }
 
     <p>
-    <input type="submit" value="Отправить" />
+        <input type="submit" value="Отправить" />
     </p>
 </form>

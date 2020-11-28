@@ -17,6 +17,7 @@ namespace TestSystem
         static string currentEnv = "";
         public static void Main(string[] args)
         {
+
             var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
             currentEnv = config.GetSection("Env").Value;
             var host = CreateHostBuilder(args).Build();

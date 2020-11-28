@@ -43,6 +43,24 @@ namespace TestSystem.Migrations
                     b.ToTable("Answers");
                 });
 
+            modelBuilder.Entity("TestSystem.Models.Message", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Messages");
+                });
+
             modelBuilder.Entity("TestSystem.Models.Profile", b =>
                 {
                     b.Property<string>("Id")

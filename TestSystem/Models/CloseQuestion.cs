@@ -7,11 +7,7 @@ namespace TestSystem.Models
 {
     public class CloseQuestion : Question
     {
-        //public List<Answer> WrongAnswer { get; set; }
-        //public List<Answer> RightAnswer { get; set; }
         public List<Answer> Answers { get; set; }
-        public int points = 5;//number of options
-        //public List<UserAnswer> Choice { get; set; } //user input
 
         public CloseQuestion() { }
 
