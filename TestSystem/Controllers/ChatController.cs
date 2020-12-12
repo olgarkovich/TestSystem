@@ -10,10 +10,11 @@ namespace TestSystem.Controllers
 {
     public class ChatController : Controller
     {
-        private readonly AppDbContext context;
-        public ChatController(AppDbContext context)
+        private readonly IRepository repository;
+
+        public ChatController(IRepository r)
         {
-            this.context = context;
+            repository = r;
         }
 
         public IActionResult Index()
@@ -21,7 +22,7 @@ namespace TestSystem.Controllers
             List<Message> messages = null;
             try
             {
-                messages = context.Messages.ToList();
+                messages = repository.GetAllMessages();
                 messages.Reverse();
             }
             catch (Exception) { }

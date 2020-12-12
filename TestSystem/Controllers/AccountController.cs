@@ -15,6 +15,7 @@ namespace TestSystem.Controllers
         private readonly UserManager<Profile> userManager;
         private readonly SignInManager<Profile> signInManager;
         private readonly EmailService emailService;
+
         public AccountController(UserManager<Profile> userManager, 
                                  SignInManager<Profile> signInManager, 
                                  EmailService emailService)
@@ -23,10 +24,6 @@ namespace TestSystem.Controllers
             this.signInManager = signInManager;
             this.emailService = emailService;
 
-        }
-
-        public AccountController()
-        {
         }
 
         [HttpGet]
@@ -62,7 +59,6 @@ namespace TestSystem.Controllers
                 {
                     ModelState.AddModelError("", error.Description);
                 }
-
             }
 
             return View(model);
@@ -91,6 +87,7 @@ namespace TestSystem.Controllers
 
                 ModelState.AddModelError("", "Неверный адрес электронной почты и/или пароль");
             }
+
             return View(model);
         }
 
@@ -99,7 +96,6 @@ namespace TestSystem.Controllers
             await signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
-
     }
 }
 

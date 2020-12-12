@@ -7,6 +7,7 @@ using TestSystem.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using TestSystem.Controllers;
+using TestSystem.Data;
 
 namespace TestSystem.Tests
 {
@@ -15,18 +16,23 @@ namespace TestSystem.Tests
         [Fact]
         public void IndexTest()
         {
-            //var mock = new Mock<IRepository>();
-            //mock.Setup(r => r.GetAll()).Returns(GetTestQuestions());
-            //var controller = new TestController(mock.Object);
+            var mock = new Mock<IRepository>();
+            mock.Setup(r => r.GetAllQuestions()).ReturnsAsync(GetTestQuestions());
+            var questions = mock.Object.GetAllQuestions().Result;
+            Test test = new Test();
+            List<Test> tests = new List<Test>();
+            var countTest = questions.Count / 5;
 
-            //// Act
-            //var result = controller.IndexAsync();
+            for (int i = 0; i < countTest; i++)
+            {
+                tests.Add(new Test());
+                tests.ElementAt(i).Id = i;
+            }
 
-            //// Assert
-            //var viewResult = Assert.IsType<ViewResult>(result);
-            //var model = Assert.IsAssignableFrom<IEnumerable<Question>>(viewResult.Model);
-            //Assert.Equal(GetTestQuestions().Count, model.Count());
+            Assert.Equal(5, questions.Count);
+            Assert.Single(tests);
         }
+
         private List<Question> GetTestQuestions()
         {
             var questions = new List<Question>

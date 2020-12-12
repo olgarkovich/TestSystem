@@ -16,23 +16,18 @@ namespace TestSystem.Controllers
         const int PUNCT_QUESTION_NUMBER = 3;
         const int OPEN_QUESTION_NUMBER = 2;
 
-        IRepository r;
-        //public TestController(AppDbContext context)
-        //{
-        //    this.context = context;
-        //}
+        IRepository repository;
 
         public TestController(IRepository r)
         {
-            this.r = r;
+            repository = r;
         }
 
         public async Task<IActionResult> IndexAsync()
         {
             if (User.Identity.IsAuthenticated)
             {
-                //var listQuestions = await context.Questions.ToListAsync();
-                var listQuestions = await r.GetAllQuestions();
+                var listQuestions = await repository.GetAllQuestions();
 
                 var countTest = listQuestions.Count / (QUESTIONS_NUMBER * 2);
 
@@ -56,8 +51,8 @@ namespace TestSystem.Controllers
 
         public async Task<IActionResult> GeneralTestAsync(int index = 0)
         {
-            var listQuestions = await r.GetAllQuestions();
-            var listAnswers = await r.GetAllAnswers();
+            var listQuestions = await repository.GetAllQuestions();
+            var listAnswers = await repository.GetAllAnswers();
 
             var listSpelling = new List<Question>(listQuestions.Where(a => a.Category == "Орфография" && !a.IsOpen));
             var listPunctuation = new List<Question>(listQuestions.Where(a => a.Category == "Пунктуация" && !a.IsOpen));
@@ -105,16 +100,15 @@ namespace TestSystem.Controllers
 
         public async Task<IActionResult> TestResultAsync(int testTry)
         {
-            var userAnswers = await r.GetUserTestTry(testTry);
-            var listQuestions = await r.GetAllQuestions();
-            var listAnswer = await r.GetAllAnswers();
+            var userAnswers = await repository.GetUserTestTry(testTry);
+            var listQuestions = await repository.GetAllQuestions();
+            var listAnswer = await repository.GetAllAnswers();
             
             Test test = new Test
             {
                 CloseQuestions = new List<CloseQuestion>(),
                 OpenQuestions = new List<OpenQuestion>()
             };
-
 
             foreach (var userAnswer in userAnswers)
             {
@@ -139,8 +133,7 @@ namespace TestSystem.Controllers
                 {
                     var cq = new CloseQuestion(q)
                     {
-                        //Answers = await context.Answers.Where(a => a.QuestionId == userAnswer.QuestionId).ToListAsync()
-                        Answers = await r.GetUserAnswersByQuestionId(userAnswer.QuestionId)
+                        Answers = await repository.GetUserAnswersByQuestionId(userAnswer.QuestionId)
                     };
 
                     var answerStr = userAnswer.Answer;
@@ -190,9 +183,7 @@ namespace TestSystem.Controllers
             int currentTest;
             try
             {
-                //List<UserAnswer> list = await context.UserAnswers.ToListAsync();
-
-                List<UserAnswer> list = await r.GetUserAnswers();
+                List<UserAnswer> list = await repository.GetUserAnswers();
                 currentTest = list.ElementAt(list.Count - 1).TestTry + 1;
             }
 
@@ -213,25 +204,21 @@ namespace TestSystem.Controllers
                 }
 
                 var userAnswer = new UserAnswer(User.Identity.Name, question.Answers[0].QuestionId, answerStr, currentTest);
-                //context.UserAnswers.Add(userAnswer);
-                await r.AddUserAnswer(userAnswer);
+                await repository.AddUserAnswer(userAnswer);
             }
 
             foreach (var question in test.OpenQuestions)
             {
                 var userAnswer = new UserAnswer(User.Identity.Name, question.Id, question.Choice, currentTest);
-                //context.UserAnswers.Add(userAnswer);
-                await r.AddUserAnswer(userAnswer);
+                await repository.AddUserAnswer(userAnswer);
             }
 
-            //await context.SaveChangesAsync();
             return RedirectToAction("TestResult", new { testTry = currentTest });
         }
 
         public async Task<IActionResult> CategoryAsync(string category)
         {
-            //var listQuestions = await context.Questions.Where(q => q.Category == category && !q.IsOpen).ToListAsync();
-            var listQuestions = await r.GetQuestionsByCategoryOpen(category);
+            var listQuestions = await repository.GetQuestionsByCategoryOpen(category);
             var countTest = listQuestions.Count / QUESTIONS_NUMBER;
 
             List<Test> listCategoryTest = new List<Test>();
@@ -245,8 +232,7 @@ namespace TestSystem.Controllers
 
         public async Task<IActionResult> CategoryTestAsync(int index = 0, string category = "Орфография")
         {
-            //var listQuestions = await context.Questions.Where(q => q.Category == category && !q.IsOpen).ToListAsync();
-            var listQuestions = await r.GetQuestionsByCategoryOpen(category);
+            var listQuestions = await repository.GetQuestionsByCategoryOpen(category);
 
             Test test = new Test
             {
@@ -258,8 +244,7 @@ namespace TestSystem.Controllers
             for (int i = 0; i < QUESTIONS_NUMBER; i++)
             {
                 var cq = new CloseQuestion(listQuestions.ElementAt(index * QUESTIONS_NUMBER + i));
-                //cq.Answers = await context.Answers.Where(a => a.QuestionId == cq.Id).ToListAsync();
-                cq.Answers = await r.GetUserAnswersByQuestionId(cq.Id);
+                cq.Answers = await repository.GetUserAnswersByQuestionId(cq.Id);
 
                 test.CloseQuestions.Add(cq);
             }
@@ -273,8 +258,7 @@ namespace TestSystem.Controllers
             int currentTest;
             try
             {
-                //List<UserAnswer> list = await context.UserAnswers.ToListAsync();
-                List<UserAnswer> list = await r.GetUserAnswers();
+                List<UserAnswer> list = await repository.GetUserAnswers();
                 currentTest = list.ElementAt(list.Count - 1).TestTry + 1;
             }
 
@@ -295,11 +279,9 @@ namespace TestSystem.Controllers
                 }
 
                 var userAnswer = new UserAnswer(User.Identity.Name, question.Id, answerStr, currentTest);
-                //context.UserAnswers.Add(userAnswer);
-                await r.AddUserAnswer(userAnswer);
+                await repository.AddUserAnswer(userAnswer);
             }
 
-            //await context.SaveChangesAsync();
             return RedirectToAction("TestResult", new { testTry = currentTest });
         }
     }

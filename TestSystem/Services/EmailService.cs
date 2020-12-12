@@ -16,9 +16,10 @@ namespace TestSystem.Services
             message.To.Add(to_address);
             message.Subject = "TestSystem";
             message.Body = body;
+
             using (SmtpClient client = new SmtpClient("smtp.gmail.com"))
             {
-                client.Credentials = new NetworkCredential("ujhkiyjh@gmail.com", "qweR123$");
+                client.Credentials = new NetworkCredential("ujhkiyjh@gmail.com", "rewQ432!");
                 client.Port = 587;
                 client.EnableSsl = true;
                 client.Send(message);

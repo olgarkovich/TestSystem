@@ -14,15 +14,11 @@ namespace TestSystem.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        //private readonly IConfiguration configuration;
-        //private readonly AppDbContext context;
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
             _logger.LogDebug(1, "NLog injected into HomeController");
-            //this.configuration = configuration;
-            //this.context = context;
         }
 
         public IActionResult Index()

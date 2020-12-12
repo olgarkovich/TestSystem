@@ -16,17 +16,17 @@ namespace TestSystem.Controllers
         private readonly UserManager<Profile> userManager;
         private readonly SignInManager<Profile> signInManager;
         private readonly EmailService emailService;
-        private readonly AppIdentityDbContext context;
+        private readonly IRepository repository;
         private Profile profile;
         public ResultController(UserManager<Profile> userManager,
                                  SignInManager<Profile> signInManager,
                                  EmailService emailService,
-                                 AppIdentityDbContext context)
+                                 IRepository repository)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.emailService = emailService;
-            this.context = context;
+            this.repository = repository;
         }
         public IActionResult Index()
         {
@@ -35,15 +35,15 @@ namespace TestSystem.Controllers
 
         public async Task<IActionResult> SendMailAsync(double mark)
         {
-            var profiles = await context.Users.Where(u => u.UserName == User.Identity.Name).ToListAsync();
-            profile = profiles.ElementAt(0);
-            
+            profile = repository.GetUserByName(User.Identity.Name);
+
             Result result = new Result
             {
                 Mark = Convert.ToInt32(mark),
                 Name = profile.Name,
                 Surname = profile.Surname
             };
+
             return View(result);
         }
 

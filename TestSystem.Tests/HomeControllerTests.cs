@@ -6,6 +6,7 @@ using TestSystem.Controllers;
 using Xunit;
 using NLog.Web;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace TestSystem.Tests
 {
@@ -14,14 +15,18 @@ namespace TestSystem.Tests
         [Fact]
         public void IndexViewDataMessage()
         {
-            //var logger = Program.CreateHostBuilder.logger;
-            //HomeController controller = new HomeController(logger);
+            var serviceProvider = new ServiceCollection().AddLogging().BuildServiceProvider();
 
-            //ViewResult result = controller.Index() as ViewResult;
+            var factory = serviceProvider.GetService<ILoggerFactory>();
 
-            //Assert.Equal("Главная", result?.ViewData["Title"]);
-            //Assert.NotNull(result);
-            //Assert.Equal("Index", result?.ViewName);
+            var logger = factory.CreateLogger<HomeController>();
+            HomeController controller = new HomeController(logger);
+
+            ViewResult result = controller.Index() as ViewResult;
+
+            Assert.Equal("Главная", result?.ViewData["Title"]);
+            Assert.NotNull(result);
+            Assert.Equal("Index", result?.ViewName);
         }
     }
 }
