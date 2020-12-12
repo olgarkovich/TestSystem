@@ -25,10 +25,15 @@ namespace TestSystem.Controllers
 
         }
 
+        public AccountController()
+        {
+        }
+
         [HttpGet]
         public IActionResult Register()
         {
-            return View();
+            ViewData["Title"] = "Регистрация";
+            return View("Register");
         }
 
         [HttpPost]
@@ -66,7 +71,8 @@ namespace TestSystem.Controllers
         [HttpGet]
         public IActionResult Login()
         {
-            return View();
+            ViewData["Title"] = "Вход";
+            return View("Login");
         }
 
         [HttpPost]

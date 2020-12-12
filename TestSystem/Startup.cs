@@ -40,6 +40,8 @@ namespace TestSystem
             services.AddIdentity<Profile, IdentityRole>()
                 .AddEntityFrameworkStores<AppIdentityDbContext>();
 
+            services.AddScoped<IRepository, EfRepository>();
+
             services.AddTransient<EmailService>();
             services.AddSingleton(Configuration);
             services.AddSignalR();

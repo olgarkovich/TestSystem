@@ -14,25 +14,21 @@ namespace TestSystem.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IConfiguration configuration;
-        private readonly AppDbContext context;
+        //private readonly IConfiguration configuration;
+        //private readonly AppDbContext context;
 
-        public HomeController(ILogger<HomeController> logger, AppDbContext context, IConfiguration configuration)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
             _logger.LogDebug(1, "NLog injected into HomeController");
-            this.configuration = configuration;
-            this.context = context;
+            //this.configuration = configuration;
+            //this.context = context;
         }
 
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
+            ViewData["Title"] = "Главная";
+            return View("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
