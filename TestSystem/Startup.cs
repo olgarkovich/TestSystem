@@ -40,6 +40,12 @@ namespace TestSystem
             services.AddIdentity<Profile, IdentityRole>()
                 .AddEntityFrameworkStores<AppIdentityDbContext>();
 
+            services.AddAuthentication().AddGoogle(options =>
+            {
+                options.ClientId = "58714662594-r499ts29n76kr3javhiun1lj2b7s5u0k.apps.googleusercontent.com";
+                options.ClientSecret = "_Lbo3guFkniy8eSnabJ9UROV";
+            });
+
             services.AddScoped<IRepository, EfRepository>();
 
             services.AddTransient<EmailService>();

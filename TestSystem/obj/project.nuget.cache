@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "quFE2AHdUK+SEl7oevlrnZ4c894pNSwuisp7ZQo/j+KXURfjeFlBoKLnWbYMNUdtQ5TdrkBKgObKHyymEO6ufQ==",
+  "dgSpecHash": "20R/pUfnABO4eQJGF1SlavjSddsn5eAew++MrOx1gqYCcaYGUjC2Px12H4vrvzR+mMrfpsewKMxTwRmWrdkqlg==",
   "success": true,
   "projectFilePath": "D:\\labs\\ASP\\TestSystem\\TestSystem.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\olgag\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\olgag\\.nuget\\packages\\microsoft.aspnetcore.authentication.cookies\\2.2.0\\microsoft.aspnetcore.authentication.cookies.2.2.0.nupkg.sha512",
     "C:\\Users\\olgag\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
+    "C:\\Users\\olgag\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\3.1.10\\microsoft.aspnetcore.authentication.google.3.1.10.nupkg.sha512",
     "C:\\Users\\olgag\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.0\\microsoft.aspnetcore.cryptography.internal.5.0.0.nupkg.sha512",
     "C:\\Users\\olgag\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.0\\microsoft.aspnetcore.cryptography.keyderivation.5.0.0.nupkg.sha512",
     "C:\\Users\\olgag\\.nuget\\packages\\microsoft.aspnetcore.dataprotection\\2.2.0\\microsoft.aspnetcore.dataprotection.2.2.0.nupkg.sha512",

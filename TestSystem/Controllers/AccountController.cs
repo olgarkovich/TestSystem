@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using TestSystem.Models;
 using TestSystem.Services;
@@ -65,10 +66,16 @@ namespace TestSystem.Controllers
         }
 
         [HttpGet]
-        public IActionResult Login()
+        public async Task<IActionResult> Login(string resultUrl)
         {
             ViewData["Title"] = "Вход";
-            return View("Login");
+
+            LoginViewModel model = new LoginViewModel
+            {
+                ReturnUrl = resultUrl,
+                ExternalLogin = (await signInManager.GetExternalAuthenticationSchemesAsync()).ToList()
+            };
+            return View(model);
         }
 
         [HttpPost]
@@ -95,6 +102,62 @@ namespace TestSystem.Controllers
         {
             await signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult ExternalLogin(string provider, string returnUrl)
+        {
+            var redirectUrl = Url.Action("ExternalLoginCallback", "Account",
+                new { ReturnUrl = returnUrl });
+            var property = signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
+
+            return new ChallengeResult(provider, property);
+
+        }
+
+        public async Task<IActionResult> ExternalLoginCallback(string resultUrl = null, string remoteError = null)
+        {
+            resultUrl = resultUrl ?? Url.Content("~/");
+            LoginViewModel loginViewModel = new LoginViewModel
+            {
+                ReturnUrl = resultUrl,
+                ExternalLogin = (await signInManager.GetExternalAuthenticationSchemesAsync()).ToList()
+            };
+
+            if (remoteError != null)
+            {
+                ModelState.AddModelError(string.Empty, $"Error from eternal provider: {remoteError}");
+                return View("Login", loginViewModel);
+            }
+
+            var info = await signInManager.GetExternalLoginInfoAsync();
+            if(info == null)
+            {
+                ModelState.AddModelError(string.Empty, "Error loading external login information.");
+                return View("Login", loginViewModel);
+            }
+
+            var signInResult = await signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, false, true);
+
+            if (signInResult.Succeeded)
+            {
+                return LocalRedirect(resultUrl);
+            }
+            else
+            {
+                var email = info.Principal.FindFirstValue(ClaimTypes.Email);
+
+                if (email != null)
+                {
+                    var user = await userManager.FindByEmailAsync(email);
+
+                    await userManager.AddLoginAsync(user, info);
+                    await signInManager.SignInAsync(user, false);
+
+                    return LocalRedirect(resultUrl);
+                }
+            }
+
+            return View("Login", loginViewModel);
         }
     }
 }

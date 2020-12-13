@@ -35,7 +35,6 @@ D:\labs\SP\TestSystem\TestSystem\obj\Debug\netcoreapp3.1\TestSystem.dll
 D:\labs\SP\TestSystem\TestSystem\obj\Debug\netcoreapp3.1\TestSystem.pdb
 D:\labs\SP\TestSystem\TestSystem\obj\Debug\netcoreapp3.1\TestSystem.genruntimeconfig.cache
 D:\labs\SP\TestSystem\TestSystem\obj\Debug\netcoreapp3.1\TestSystem.csproj.CopyComplete
-D:\labs\ASP\TestSystem\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\labs\ASP\TestSystem\bin\Debug\netcoreapp3.1\appsettings.json
 D:\labs\ASP\TestSystem\bin\Debug\netcoreapp3.1\TestSystem.exe
 D:\labs\ASP\TestSystem\bin\Debug\netcoreapp3.1\TestSystem.deps.json
@@ -217,7 +216,6 @@ D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\Razor\Views\Test\TestResult.cshtm
 D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
 D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
 D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\Razor\Views\Result\SendMail.cshtml.g.cs
-D:\labs\ASP\TestSystem\bin\Debug\netcoreapp3.1\appsettings.Production.json
 D:\labs\ASP\TestSystem\bin\Debug\netcoreapp3.1\nlog.config
 D:\labs\ASP\TestSystem\bin\Debug\netcoreapp3.1\NLog.dll
 D:\labs\ASP\TestSystem\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
@@ -227,3 +225,4 @@ D:\labs\ASP\TestSystem\bin\Debug\netcoreapp3.1\libman.json
 D:\labs\ASP\TestSystem\obj\Debug\netcoreapp3.1\Razor\Views\Chat\Index.cshtml.g.cs
 D:\labs\ASP\TestSystem\bin\Debug\netcoreapp3.1\Castle.Core.dll
 D:\labs\ASP\TestSystem\bin\Debug\netcoreapp3.1\Moq.dll
+D:\labs\ASP\TestSystem\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Google.dll
