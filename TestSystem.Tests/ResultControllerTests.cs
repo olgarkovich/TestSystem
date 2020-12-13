@@ -23,8 +23,8 @@ namespace TestSystem.Tests
 
             var mock = new Mock<IRepository>();
             var name = "Misha";
-            mock.Setup(r => r.GetUserByName(name)).Returns(GetTestProfile(name));
-            var user = mock.Object.GetUserByName(name);
+            mock.Setup(r => r.GetUserByNameAsync(name)).Returns(GetTestProfile(name));
+            var user = mock.Object.GetUserByNameAsync(name);
 
             Assert.NotNull(user);
             Assert.Equal("Misha", user.Name);
@@ -42,8 +42,8 @@ namespace TestSystem.Tests
 
             var mock = new Mock<IRepository>();
             var name = "Masha";
-            mock.Setup(r => r.GetUserByName(name)).Returns(GetTestProfile(name));
-            var user = mock.Object.GetUserByName(name);
+            mock.Setup(r => r.GetUserByNameAsync(name)).Returns(GetTestProfile(name));
+            var user = mock.Object.GetUserByNameAsync(name);
 
             Assert.Null(user);
         }

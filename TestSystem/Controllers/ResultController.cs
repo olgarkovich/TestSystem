@@ -35,7 +35,7 @@ namespace TestSystem.Controllers
 
         public async Task<IActionResult> SendMailAsync(double mark)
         {
-            profile = repository.GetUserByName(User.Identity.Name);
+            profile = await repository.GetUserByNameAsync(User.Identity.Name);
 
             Result result = new Result
             {

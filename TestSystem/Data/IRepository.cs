@@ -16,7 +16,6 @@ namespace TestSystem.Data
         Task AddUserAnswer(UserAnswer userAnswer);
         Task<List<Question>> GetQuestionsByCategoryOpen(string category);
         List<Message> GetAllMessages();
-
-        Profile GetUserByName(string name);
+        Task<Profile> GetUserByNameAsync(string name);
     }
 }

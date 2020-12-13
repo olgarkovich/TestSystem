@@ -59,11 +59,9 @@ namespace TestSystem.Data
             return context.UserAnswers.Where(t => t.TestTry == testTry).ToListAsync();
         }
 
-        public Profile GetUserByName(string name)
+        public async Task<Profile> GetUserByNameAsync(string name)
         {
-            var profiles = idContext.Users.Where(u => u.UserName == name).ToListAsync();
-            var profile = profiles.Result.ElementAt(0);
-            return profile;
+            return await idContext.Users.FirstOrDefaultAsync(u => u.UserName == name);
         }
 
     }
