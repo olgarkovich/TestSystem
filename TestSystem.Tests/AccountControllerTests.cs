@@ -8,6 +8,7 @@ using System.Text;
 using TestSystem.Controllers;
 using TestSystem.Models;
 using TestSystem.Services;
+using TestSystem.ViewModels;
 using Xunit;
 
 namespace TestSystem.Tests
@@ -32,19 +33,18 @@ namespace TestSystem.Tests
         }
 
         [Fact]
-        public void LoginTest()
+        public async System.Threading.Tasks.Task LoginTestAsync()
         {
-            //Mock<EmailService> mockEmailService = new Mock<EmailService>();
-            //Mock<FakeUserManager> mockUserManager = new Mock<FakeUserManager>();
-            //Mock<FakeSignInManager> mockSignIn = new Mock<FakeSignInManager>();
+            Mock<EmailService> mockEmailService = new Mock<EmailService>();
+            Mock<FakeUserManager> mockUserManager = new Mock<FakeUserManager>();
+            Mock<FakeSignInManager> mockSignIn = new Mock<FakeSignInManager>();
 
-            //AccountController controller = new AccountController(mockUserManager.Object, mockSignIn.Object, mockEmailService.Object);
+            AccountController controller = new AccountController(mockUserManager.Object, mockSignIn.Object, mockEmailService.Object);
 
-            //ViewResult result = controller.Login("pam-pam") as ViewResult;
+            ViewResult result = await controller.Login("pam-pam") as ViewResult;
 
-            //Assert.Equal("Вход", result?.ViewData["Title"]);
-            //Assert.NotNull(result);
-            //Assert.Equal("Login", result?.ViewName);
+            Assert.Equal("Вход", result?.ViewData["Title"]);
+            Assert.IsType<LoginViewModel>(result.Model);
         }
     }
 }

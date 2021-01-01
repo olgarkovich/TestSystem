@@ -8,13 +8,14 @@ using TestSystem.Data;
 using TestSystem.Models;
 using TestSystem.Services;
 using Xunit;
+using System.Threading.Tasks;
 
 namespace TestSystem.Tests
 {
     public class ResultControllerTests
     {
         [Fact]
-        public void GetCorrectUserTest()
+        public async System.Threading.Tasks.Task GetCorrectUserTestAsync()
         {
             Mock<EmailService> mockEmailService = new Mock<EmailService>();
             Mock<FakeUserManager> mockUserManager = new Mock<FakeUserManager>();
@@ -27,8 +28,7 @@ namespace TestSystem.Tests
             var user = mock.Object.GetUserByNameAsync(name);
 
             Assert.NotNull(user);
-            Assert.Equal("Misha", user.Name);
-
+            Assert.Equal("Misha", user.Result.Name);
         }
 
         [Fact]
@@ -45,10 +45,10 @@ namespace TestSystem.Tests
             mock.Setup(r => r.GetUserByNameAsync(name)).Returns(GetTestProfile(name));
             var user = mock.Object.GetUserByNameAsync(name);
 
-            Assert.Null(user);
+            Assert.Null(user.Result);
         }
 
-        private Profile GetTestProfile(string name)
+        private async Task<Profile> GetTestProfile(string name)
         {
             var profile = new Profile();
             profile.Surname = "Ivanov";

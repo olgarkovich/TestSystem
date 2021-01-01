@@ -24,7 +24,9 @@ namespace TestSystem.Tests
 
             var viewResult = Assert.IsType<ViewResult>(result);
             var model = Assert.IsAssignableFrom<IEnumerable<Message>>(viewResult.Model);
+
             Assert.Equal(GetTestMessages().Count, model.Count());
+            Assert.IsType<List<Message>>(viewResult.Model);
         }
 
         private List<Message> GetTestMessages()
